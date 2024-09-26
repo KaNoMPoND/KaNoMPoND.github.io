@@ -3,70 +3,51 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="font-Oswald flex px-7 bg-red-400 w-screen h-screen">
-        <div
-          className="flex flex-col
-         gap-6 w-1/2 text-center bg-black text-white"
-        >
-          leftcontent
-          <div className="border w-4/4 h-2/6 ">photo</div>
-          <div className="flex flex-col gap-y-12">
-            <div className="border  ">
-              <div className="text-2xl text-left">STORY OF LIFE</div>
-              <h6>
-                <div className="text-left">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                  dignissimos quam est recusandae ullam amet non, optio magnam
-                  provident assumenda ad quaerat nemo sunt incidunt expedita!
-                  Similique dolorem ratione at!
-                </div>
-              </h6>
+      <div className="grid bg-gradient-to-b from-blue-950 via-blue-900 to-blue-600 font-Oswald">
+        <div>photo</div>
+        <div className="text-white">
+          <div className=" text-4xl text-center pt-5">
+            Kunanon Hirunrattanaporn
+          </div>
+
+          <div className="text-2xl px-8">
+            About Me
+            <hr></hr>
+            <div className="text-xl">Location</div>
+            <div className="text-xl">Language</div>
+          </div>
+
+          <div className="text-2xl px-8 ">
+            Hobby
+            <hr></hr>
+            <div className="text-xl">Watch Movie</div>
+            <div className="text-xl">Play Game</div>
+            <div className="text-xl">Home Workout</div>
+          </div>
+
+          <div className="text-2xl px-8">
+            Contact Profile
+            <hr></hr>
+            <div className="text-xl">Email :</div>
+            <div className="text-xl">Tel.</div>
+            <div className="text-xl">FB :</div>
+          </div>
+
+          <div className="text-2xl px-8">
+            Education
+            <hr></hr>
+            <div className="text-xl">
+              Junior High School 2015-2017 : Saint Marry school
             </div>
-            <div className="border">
-              <div className="text-2xl text-left flex flex-col gap-3">
-                EDUCATION
-              </div>
-              <h6>
-                <div className="text-left">
-                  <div>Junior High School 2015-2017 : Saint Marry school</div>
-                  <div>High School 2018-2020 : Wisutthi Kasattree School</div>
-                  <div>University 2022-2026 : Bangkok University</div>
-                </div>
-              </h6>
+            <div className="text-xl text-nowrap">
+              High School 2018-2020 : Wisutthi Kasattree School
             </div>
-            <div className="border  ">
-              <div className="text-2xl text-left">AWARD</div>
-              <h6>
-                <div className="text-left">
-                  <div>text</div>
-                  <div>text</div>
-                  <div>text</div>
-                </div>
-              </h6>
+            <div className="text-xl">
+              University 2022-2026 : Bangkok University
             </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-6 w-1/2 text-center">
-          rightcontent
-          <div className="border w-4/4 h-2/6">
-            <div>Name</div>
-          </div>
-          <div className="border">
-            <div className="text-2xl">Contact profile</div>
-            <h6>
-              <div className="text-left">
-                <div>Tel.</div>
-                <div>Email.</div>
-                <div>Others</div>
-              </div>
-            </h6>
-          </div>
-          <div className="border">
-            <div className="text-2xl">Skill</div>
-          </div>
-          <div className="border">
-            <div className="text-2xl">Expertise</div>
-          </div>
+          <div className="text-2xl px-8">Skill</div>
+          <hr></hr>
         </div>
       </div>
     </>
