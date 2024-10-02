@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         Oswald: ["Oswald", "system-ui", "sans-serif"],
+        Teko: ["Teko", "sans-serif"]
       },
     },
   },
