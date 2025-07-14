@@ -15,6 +15,24 @@ const educationData = [
   },
 ];
 
+const goalsData = [
+  {
+    icon: "💻",
+    text: "Gain hands-on experience in UX/UI and graphic design in a real-world setting",
+    bgColor: "bg-indigo-900",
+  },
+  {
+    icon: "👥",
+    text: "Improve collaboration skills with developers and design teams",
+    bgColor: "bg-indigo-900",
+  },
+  {
+    icon: "📊",
+    text: "Improve UX/UI skills and user behavior analysis",
+    bgColor: "bg-indigo-900",
+  },
+];
+
 function splitTextAndYear(text: string) {
   const match = text.match(/^(.*?)(\([^)]+\))?$/);
   if (!match) return { main: text, year: "" };
@@ -22,7 +40,8 @@ function splitTextAndYear(text: string) {
 }
 
 const AboutMe = () => {
-  const [activeTab, setActiveTab] = useState<'education' | 'project'>('education');
+  const [activeTab, setActiveTab] = useState<'education' | 'project' | 'goals'>('education');
+  const [hoveredGoal, setHoveredGoal] = useState<number | null>(null);
 
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-12 text-white">
@@ -35,7 +54,7 @@ const AboutMe = () => {
           My name is Kunanon Hirunrattannaporn.I graduated from the Faculty of Information Technology and Innovation, Bangkok University.
           I created this website to present myself, my skills, and the projects I've worked on.
           </p>
-          <div className="grid grid-cols-2 gap-4 mb-8 w-full">
+          <div className="grid grid-cols-3 gap-4 mb-8 w-full">
             <button
               className={`flex flex-col items-center w-full p-4 font-semibold text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
                 ${activeTab === 'education'
@@ -64,9 +83,23 @@ const AboutMe = () => {
                 <span>Projects</span>
               </div>
             </button>
+            <button
+              className={`flex flex-col items-center w-full p-4 font-semibold text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
+                ${activeTab === 'goals'
+                  ? 'bg-gray-200 text-gray-900 ring-2 ring-pink-400 border-transparent'
+                  : 'bg-black/60 text-white/90 border-white/20 hover:bg-gray-700 hover:text-pink-300 hover:scale-105'}
+              `}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setActiveTab('goals')}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xl">🚀</span>
+                <span>Goals</span>
+              </div>
+            </button>
           </div>
           {/* Tab Content */}
-          <div className="mt-4 w-full flex flex-col items-start min-h-[300px]">
+          <div className="mt-4 w-full flex flex-col items-start min-h-[400px]">
             {activeTab === 'education' && (
               <div className="w-full">
                 <div className="mb-2 text-white font-medium">Education</div>
@@ -91,18 +124,38 @@ const AboutMe = () => {
             {activeTab === 'project' && (
               <div className="w-full">
                 <div className="mb-2 text-white font-medium">Projects</div>
-                <ul className="list-disc pl-5 text-white/90 space-y-3">
+                <ul className="list-disc pl-8 text-white/90 text-base md:text-lg leading-relaxed space-y-3">
                   <li>Pentest Report: Example from TryHackMe</li>
                   <li>Basic Design Network system and Analysis Network System</li>
                   <li>UX/UI Design for Workout Application (Figma)</li>
                 </ul>
               </div>
             )}
+            {activeTab === 'goals' && (
+              <div className="w-full">
+                <div className="mb-4 text-white font-medium text-xl">Internship Goals</div>
+                <div className="space-y-4">
+                  {goalsData.map((goal, idx) => (
+                    <div 
+                      key={idx}
+                      className={`p-6 rounded-lg transition-all duration-300 ${goal.bgColor} ${hoveredGoal === idx ? 'scale-105 shadow-lg' : ''}`}
+                      onMouseEnter={() => setHoveredGoal(idx)}
+                      onMouseLeave={() => setHoveredGoal(null)}
+                    >
+                      <div className="flex items-start gap-4">
+                        <span className="text-2xl">{goal.icon}</span>
+                        <p className="text-white text-base md:text-lg">{goal.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {/* Right: Placeholder for image */}
-        <div className="flex-1 flex items-center justify-center h-full min-h-[32rem] mt-20">
-          <img src="/S__40878177_0.jpg" alt="profile" className="w-64 h-96 md:w-72 md:h-[32rem] rounded-2xl object-cover shadow-md mr-auto scale-110 transition-all" />
+        <div className="flex-1 flex items-center justify-center h-full min-h-[50rem]">
+          <img src="/S__40878177_0.jpg" alt="profile" className="w-80 h-full md:w-72 md:h-[40rem] rounded-2xl object-cover shadow-md mr-auto scale-110 transition-all" />
         </div>
       </div>
     </div>

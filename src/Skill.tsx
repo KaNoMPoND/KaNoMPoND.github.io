@@ -4,8 +4,8 @@ import ReactIcon from "./assets/icon/react";
 
 const skills = [
   { name: "Kali Linux", percent: 80 },
-  { name: "HTML", percent: 80 },
-  { name: "CSS", percent: 80 },
+  { name: "HTML", percent: 50 },
+  { name: "CSS", percent: 50 },
   { name: "JavaScript", percent: 50 },
   { name: "Next JS", percent: 30 },
   { name: "Node JS", percent: 35 },
