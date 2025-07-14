@@ -44,8 +44,8 @@ const AboutMe = () => {
   const [hoveredGoal, setHoveredGoal] = useState<number | null>(null);
 
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-12 text-white">
-      <div className="max-w-4xl w-full flex flex-col md:flex-row items-stretch gap-16">
+    <div className="min-h-[60vh] flex flex-col items-center justify-center px-2 sm:px-4 py-8 sm:py-12 text-white">
+      <div className="max-w-4xl w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-16">
         {/* Left: Content */}
         <div className="flex-1 flex flex-col justify-center items-start h-full min-h-[32rem]">
           <div className="mb-2 text-white/70">Introduction</div>
@@ -55,9 +55,9 @@ const AboutMe = () => {
           and am proficient in using standard tools such as Kali Linux, VS Code, Adobe Photoshop,as well as Microsoft Word and Excel.
           <br />I am also highly motivated to continuously learn and improve myself.
           </p>
-          <div className="grid grid-cols-3 gap-4 mb-8 w-full">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8 w-full">
             <button
-              className={`flex flex-col items-center w-full p-4 font-semibold text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
+              className={`flex flex-col items-center w-full p-2 sm:p-4 font-semibold text-sm sm:text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
                 ${activeTab === 'education'
                   ? 'bg-gray-200 text-gray-900 ring-2 ring-pink-400 border-transparent'
                   : 'bg-black/60 text-white/90 border-white/20 hover:bg-gray-700 hover:text-pink-300 hover:scale-105'}
@@ -65,13 +65,13 @@ const AboutMe = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => setActiveTab('education')}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">🎓</span>
-                <span>Education</span>
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <span className="text-lg sm:text-xl">🎓</span>
+                <span className="text-xs sm:text-base">Education</span>
               </div>
             </button>
             <button
-              className={`flex flex-col items-center w-full p-4 font-semibold text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
+              className={`flex flex-col items-center w-full p-2 sm:p-4 font-semibold text-sm sm:text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
                 ${activeTab === 'project'
                   ? 'bg-gray-200 text-gray-900 ring-2 ring-pink-400 border-transparent'
                   : 'bg-black/60 text-white/90 border-white/20 hover:bg-gray-700 hover:text-pink-300 hover:scale-105'}
@@ -79,13 +79,13 @@ const AboutMe = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => setActiveTab('project')}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">📁</span>
-                <span>Projects</span>
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <span className="text-lg sm:text-xl">📁</span>
+                <span className="text-xs sm:text-base">Projects</span>
               </div>
             </button>
             <button
-              className={`flex flex-col items-center w-full p-4 font-semibold text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
+              className={`flex flex-col items-center w-full p-2 sm:p-4 font-semibold text-sm sm:text-lg rounded-xl border shadow-sm transition-all duration-200 focus:outline-none
                 ${activeTab === 'goals'
                   ? 'bg-gray-200 text-gray-900 ring-2 ring-pink-400 border-transparent'
                   : 'bg-black/60 text-white/90 border-white/20 hover:bg-gray-700 hover:text-pink-300 hover:scale-105'}
@@ -93,9 +93,9 @@ const AboutMe = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => setActiveTab('goals')}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">🚀</span>
-                <span>Goals</span>
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <span className="text-lg sm:text-xl">🚀</span>
+                <span className="text-xs sm:text-base">Goals</span>
               </div>
             </button>
           </div>
@@ -139,13 +139,13 @@ const AboutMe = () => {
                   {goalsData.map((goal, idx) => (
                     <div 
                       key={idx}
-                      className={`p-6 rounded-lg transition-all duration-300 ${goal.bgColor} ${hoveredGoal === idx ? 'scale-105 shadow-lg' : ''}`}
+                      className={`p-4 sm:p-6 rounded-lg transition-all duration-300 ${goal.bgColor} ${hoveredGoal === idx ? 'scale-105 shadow-lg' : ''}`}
                       onMouseEnter={() => setHoveredGoal(idx)}
                       onMouseLeave={() => setHoveredGoal(null)}
                     >
-                      <div className="flex items-start gap-4">
-                        <span className="text-2xl">{goal.icon}</span>
-                        <p className="text-white text-base md:text-lg">{goal.text}</p>
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <span className="text-xl sm:text-2xl">{goal.icon}</span>
+                        <p className="text-white text-sm sm:text-base md:text-lg">{goal.text}</p>
                       </div>
                     </div>
                   ))}

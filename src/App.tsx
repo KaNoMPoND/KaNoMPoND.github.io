@@ -31,6 +31,7 @@ function App() {
 
   const [activeNav, setActiveNav] = React.useState('home');
   const [isScrolling, setIsScrolling] = React.useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   // Scroll spy (optional: highlight active menu ตาม section ที่ scroll ถึง)
   React.useEffect(() => {
@@ -72,6 +73,7 @@ function App() {
   const scrollToSectionWithoutSpy = (ref: React.RefObject<HTMLDivElement>, navKey: string) => {
     setIsScrolling(true);
     setActiveNav(navKey);
+    setMobileMenuOpen(false);
     
     if (ref.current) {
       let offsetTop;
@@ -93,6 +95,7 @@ function App() {
   const scrollToContact = () => {
     setIsScrolling(true);
     setActiveNav('contact');
+    setMobileMenuOpen(false);
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       const offsetTop = contactSection.offsetTop - 120;
@@ -106,6 +109,7 @@ function App() {
   const scrollToHome = () => {
     setIsScrolling(true);
     setActiveNav('home');
+    setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
     setTimeout(() => {
@@ -176,11 +180,23 @@ function App() {
       </div>
       
       {/* Navbar */}
-      <nav className="w-full flex justify-between items-center px-8 py-4 bg-white/10 backdrop-blur-md rounded-b-2xl shadow-md mt-4 mx-auto max-w-6xl fixed z-50 left-1/2 -translate-x-1/2">
-        <div className="flex items-center text-2xl font-bold text-white whitespace-nowrap">
+      <nav className="w-full flex justify-between items-center px-4 sm:px-8 py-4 bg-white/10 backdrop-blur-md rounded-b-2xl shadow-md mt-4 mx-auto max-w-6xl fixed z-50 left-1/2 -translate-x-1/2">
+        <div className="flex items-center text-xl sm:text-2xl font-bold text-white whitespace-nowrap">
           Kunanon<span className="text-pink-400">.</span>
         </div>
-        <ul className="flex gap-8 text-lg text-white/90 items-center whitespace-nowrap">
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-white p-2" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"} />
+          </svg>
+        </button>
+        
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-4 lg:gap-8 text-base lg:text-lg text-white/90 items-center whitespace-nowrap">
           <li
             className="relative cursor-pointer px-2 group"
             onClick={() => scrollToHome()}
@@ -224,10 +240,60 @@ function App() {
             <span className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-white rounded transition-all duration-300 ${activeNav === 'certificate' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'}`}></span>
           </li>
         </ul>
-        <button className="border border-white/40 rounded-full px-5 py-2 text-white flex items-center gap-2 hover:bg-white/10 transition whitespace-nowrap" onClick={() => scrollToContact()}>
+        <button className="hidden md:flex border border-white/40 rounded-full px-5 py-2 text-white items-center gap-2 hover:bg-white/10 transition whitespace-nowrap" onClick={() => scrollToContact()}>
           Contact <span className="ml-1">↗</span>
         </button>
       </nav>
+      
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed top-16 left-0 right-0 bg-blue-900/95 backdrop-blur-md z-40 p-4 rounded-b-2xl shadow-lg md:hidden">
+          <ul className="flex flex-col gap-4 text-white">
+            <li 
+              className={`p-2 ${activeNav === 'home' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToHome()}
+            >
+              Home
+            </li>
+            <li 
+              className={`p-2 ${activeNav === 'about' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToSectionWithoutSpy(aboutRef, 'about')}
+            >
+              About me
+            </li>
+            <li 
+              className={`p-2 ${activeNav === 'skill' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToSectionWithoutSpy(skillRef, 'skill')}
+            >
+              Skills
+            </li>
+            <li 
+              className={`p-2 ${activeNav === 'myworks' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToSectionWithoutSpy(myworksRef, 'myworks')}
+            >
+              My Works
+            </li>
+            <li 
+              className={`p-2 ${activeNav === 'activities' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToSectionWithoutSpy(activitiesRef, 'activities')}
+            >
+              Activities
+            </li>
+            <li 
+              className={`p-2 ${activeNav === 'certificate' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToSectionWithoutSpy(certificateRef, 'certificate')}
+            >
+              Certificate
+            </li>
+            <li 
+              className={`p-2 mt-2 border border-white/40 rounded-full text-center ${activeNav === 'contact' ? 'bg-white/10 font-bold' : ''}`}
+              onClick={() => scrollToContact()}
+            >
+              Contact
+            </li>
+          </ul>
+        </div>
+      )}
 
       {/* Hero Section (Home) */}
       <div ref={homeRef} className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-32 pb-16" id="home">
