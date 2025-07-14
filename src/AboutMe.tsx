@@ -18,17 +18,17 @@ const educationData = [
 const goalsData = [
   {
     icon: "💻",
-    text: "Gain hands-on experience in UX/UI and graphic design in a real-world setting",
+    text: "Gain hands-on experience in Cybersecurity career and Software development",
     bgColor: "bg-indigo-900",
   },
   {
     icon: "👥",
-    text: "Improve collaboration skills with developers and design teams",
+    text: "Improve collaboration skills with developers teams",
     bgColor: "bg-indigo-900",
   },
   {
     icon: "📊",
-    text: "Improve UX/UI skills and user behavior analysis",
+    text: "Improve Cybersecurity skills and Software development skills",
     bgColor: "bg-indigo-900",
   },
 ];
@@ -51,8 +51,9 @@ const AboutMe = () => {
           <div className="mb-2 text-white/70">Introduction</div>
           <h1 className="text-4xl font-serif font-semibold mb-6">About me</h1>
           <p className="mb-8 text-base md:text-lg text-white/90 max-w-2xl">
-          My name is Kunanon Hirunrattannaporn.I graduated from the Faculty of Information Technology and Innovation, Bangkok University.
-          I created this website to present myself, my skills, and the projects I've worked on.
+          I specialize in cybersecurity, have a background in front-end development,
+          and am proficient in using standard tools such as Kali Linux, VS Code, Adobe Photoshop,as well as Microsoft Word and Excel.
+          <br />I am also highly motivated to continuously learn and improve myself.
           </p>
           <div className="grid grid-cols-3 gap-4 mb-8 w-full">
             <button

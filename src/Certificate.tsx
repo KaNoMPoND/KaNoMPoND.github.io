@@ -19,7 +19,9 @@ const Certificate = () => {
           <span className="text-white">My </span>
           <span className="text-pink-300">Certificates</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        {/* First Row - 2 Certificates */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Certificate 1 */}
           <div className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer">
             <div className="text-xl font-semibold text-white mb-4 text-center">BU-ITI CTF Competition 2025</div>
@@ -37,6 +39,21 @@ const Certificate = () => {
             </div>
             <button onClick={() => openModal("/image.png", "Basic CyberSecurity By MOOC")}
               className="text-pink-300 hover:underline mt-2">View Certificate</button>
+          </div>
+        </div>
+        
+        {/* Second Row - 1 Certificate Centered */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            {/* Certificate 3 - New Certificate */}
+            <div className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer">
+              <div className="text-xl font-semibold text-white mb-4 text-center">Network Security Certificate</div>
+              <div className="w-full flex justify-center mb-4">
+                <img src="/cer.dereakkk.png" alt="Network Security Certificate" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+              </div>
+              <button onClick={() => openModal("/cer.dereakkk.png", "Network Security Certificate")}
+                className="text-pink-300 hover:underline mt-2">View Certificate</button>
+            </div>
           </div>
         </div>
       </div>

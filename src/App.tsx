@@ -115,6 +115,66 @@ function App() {
 
   return (
     <div className="min-h-screen bg-blue-950 flex flex-col relative overflow-hidden">
+      {/* Hamster Images on BG */}
+      <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes rotate {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
+          @keyframes moveLeftRight {
+            0% { left: -5%; }
+            50% { left: 90%; }
+            100% { left: -5%; }
+          }
+          
+          @keyframes moveUpDown {
+            0% { top: 20%; }
+            50% { top: 70%; }
+            100% { top: 20%; }
+          }
+          
+          .hamster1 {
+            position: absolute;
+            animation: 
+              rotate 10s linear infinite,
+              moveLeftRight 15s ease-in-out infinite,
+              moveUpDown 12s ease-in-out infinite;
+          }
+          
+          .hamster2 {
+            position: absolute;
+            animation: 
+              rotate 8s linear infinite,
+              moveLeftRight 20s ease-in-out infinite reverse,
+              moveUpDown 18s ease-in-out infinite reverse;
+          }
+        `}} />
+        
+        {/* First Hamster */}
+        <div className="hamster1">
+          <img 
+            src="/Sad-Hamster-Seeking-Comfort-From-Owner-PNG.png" 
+            alt="Sad Hamster" 
+            className="w-28 md:w-40"
+          />
+        </div>
+        
+        {/* Second Hamster */}
+        <div className="hamster2">
+          <img 
+            src="/Sad-Hamster-Seeking-Comfort-From-Owner-PNG.png" 
+            alt="Sad Hamster" 
+            className="w-24 md:w-32"
+          />
+        </div>
+      </div>
+      
       {/* Navbar */}
       <nav className="w-full flex justify-between items-center px-8 py-4 bg-white/10 backdrop-blur-md rounded-b-2xl shadow-md mt-4 mx-auto max-w-6xl fixed z-50 left-1/2 -translate-x-1/2">
         <div className="flex items-center text-2xl font-bold text-white whitespace-nowrap">
@@ -178,8 +238,8 @@ function App() {
         <h1 className="text-white font-Teko text-5xl md:text-6xl font-bold leading-tight mb-2" style={{ whiteSpace: 'pre-line' }}>
           {displayedText}
         </h1>
-        <p className="text-white/80 max-w-xl mx-auto mb-8 text-base md:text-lg">
-        ผมอยากได้ที่ฝึกงานเพิ่มประสบการณ์การทำงานจริงและประการณ์การเขียนโปรแกรมครับ
+        <p className="text-white/80 max-w-xl mx-auto mb-8 text-xl md:text-2xl">
+        My <span style={{ color: "#E14434" }}>passionate</span> about <span className="underline">Cybersecurity</span> and <span className="underline">UX/UI Design</span>.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <button
@@ -241,24 +301,24 @@ function App() {
         <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           <div className="bg-gradient-to-br from-purple-900/20 via-purple-700/10 to-pink-600/20 backdrop-blur-md border border-purple-500/30 rounded-3xl p-8 shadow-2xl shadow-purple-500/20">
             <div className="flex flex-col items-start">
-              <h2 className="text-3xl font-bold text-white mb-8">Want to offer me a job?</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Contact me for internship.</h2>
               
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </span>
-                <a href="tel:0955487274" className="text-white hover:text-pink-400 transition">095-548-7274</a>
+                <a href="tel:0955487274" className="text-white hover:text-pink-400 transition text-xl">095-548-7274</a>
               </div>
               
               <div className="flex items-center gap-3">
                 <span className="text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </span>
-                <a href="mailto:kunanon.hn@gmail.com" className="text-white hover:text-pink-400 transition">kunanon.hn@gmail.com</a>
+                <a href="mailto:kunanon.hn@gmail.com" className="text-white hover:text-pink-400 transition text-xl">kunanon.hn@gmail.com</a>
               </div>
             </div>
           </div>
