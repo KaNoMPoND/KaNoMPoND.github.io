@@ -163,13 +163,6 @@ function App() {
             <span className={activeNav === 'certificate' ? 'text-white font-bold' : ''}>Certificate</span>
             <span className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-white rounded transition-all duration-300 ${activeNav === 'certificate' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'}`}></span>
           </li>
-          <li
-            className="relative cursor-pointer px-2 group"
-            onClick={() => scrollToContact()}
-          >
-            <span className={activeNav === 'contact' ? 'text-white font-bold' : ''}>Contact</span>
-            <span className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-white rounded transition-all duration-300 ${activeNav === 'contact' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'}`}></span>
-          </li>
         </ul>
         <button className="border border-white/40 rounded-full px-5 py-2 text-white flex items-center gap-2 hover:bg-white/10 transition whitespace-nowrap" onClick={() => scrollToContact()}>
           Contact <span className="ml-1">↗</span>
