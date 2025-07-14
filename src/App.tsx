@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import AboutMe from "./AboutMe";
 import Skill from "./Skill";
 import MyWorks from "./MyWorks";
@@ -12,12 +12,6 @@ function App() {
   const myworksRef = useRef<HTMLDivElement>(null);
   const activitiesRef = useRef<HTMLDivElement>(null);
   const certificateRef = useRef<HTMLDivElement>(null);
-
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   // Typewriter Effect
   const typewriterText = "Student Of Bangkok University\nCyber security Major.";
@@ -168,6 +162,13 @@ function App() {
             <span className={activeNav === 'certificate' ? 'text-white font-bold' : ''}>Certificate</span>
             <span className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-white rounded transition-all duration-300 ${activeNav === 'certificate' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'}`}></span>
           </li>
+          <li
+            className="relative cursor-pointer px-2 group"
+            onClick={() => scrollToContact()}
+          >
+            <span className={activeNav === 'contact' ? 'text-white font-bold' : ''}>Contact</span>
+            <span className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-white rounded transition-all duration-300 ${activeNav === 'contact' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'}`}></span>
+          </li>
         </ul>
         <button className="border border-white/40 rounded-full px-5 py-2 text-white flex items-center gap-2 hover:bg-white/10 transition whitespace-nowrap" onClick={() => scrollToContact()}>
           Contact <span className="ml-1">↗</span>
@@ -242,7 +243,7 @@ function App() {
       </div>
 
       {/* Contact Section */}
-      <div id="contact" className="bg-blue-950 py-16 pb-20">
+      <div id="contact" className="py-16 pb-32">
         <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           <div className="bg-gradient-to-br from-purple-900/20 via-purple-700/10 to-pink-600/20 backdrop-blur-md border border-purple-500/30 rounded-3xl p-8 shadow-2xl shadow-purple-500/20">
             <div className="flex flex-col items-start">
@@ -254,7 +255,7 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </span>
-                <a href="tel:+66099999999" className="text-white hover:text-pink-400 transition">+66(0)9-5548-7274</a>
+                <a href="tel:+66099999999" className="text-white hover:text-pink-400 transition">+66(0)9.9999.9999</a>
               </div>
               
               <div className="flex items-center gap-3">
@@ -263,7 +264,7 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </span>
-                <a href="mailto:hello@yourdomain.com" className="text-white hover:text-pink-400 transition">kunanon.hn@gmail.com</a>
+                <a href="mailto:hello@yourdomain.com" className="text-white hover:text-pink-400 transition">hello@yourdomain.com</a>
               </div>
             </div>
           </div>

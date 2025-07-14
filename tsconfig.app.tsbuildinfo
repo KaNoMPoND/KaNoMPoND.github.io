@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.6.2"}
+{"root":["./src/aboutme.tsx","./src/activities.tsx","./src/app.tsx","./src/certificate.tsx","./src/myworks.tsx","./src/skill.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/assets/icon/email.tsx","./src/assets/icon/html.tsx","./src/assets/icon/python.tsx","./src/assets/icon/react.tsx"],"version":"5.6.2"}

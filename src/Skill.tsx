@@ -1,4 +1,3 @@
-import React from "react";
 import Python from "./assets/icon/python";
 import Html from "./assets/icon/html";
 import ReactIcon from "./assets/icon/react";

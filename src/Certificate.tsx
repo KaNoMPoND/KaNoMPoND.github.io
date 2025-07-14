@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Certificate = () => {
   const [modalOpen, setModalOpen] = useState(false);
