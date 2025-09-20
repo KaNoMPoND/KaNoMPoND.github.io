@@ -368,13 +368,14 @@ function App() {
           <div className="bg-gradient-to-br from-purple-900/20 via-purple-700/10 to-pink-600/20 backdrop-blur-md border border-purple-500/30 rounded-3xl p-8 shadow-2xl shadow-purple-500/20">
             <div className="w-full flex justify-center py-8 scroll-mt-24">
               <div className="max-w-5xl w-full px-2 md:px-8 py-8">
+                {/* Certificates Section */}
                 <h2 className="text-center text-4xl font-bold mb-12 text-white">
                   <span className="text-white">My </span>
                   <span className="text-pink-300">Certificates</span>
                 </h2>
                 
-                {/* First Row - 2 Certificates (Priority) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                {/* Certificates - First Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                   {/* Certificate 1 - Microsoft SOC */}
                   <div 
                     className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
@@ -395,21 +396,7 @@ function App() {
                       <img src="/cer.dereakkk.png" alt="Network Security Certificate" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
                     </div>
                   </div>
-                </div>
-                
-                {/* Second Row - 3 Certificates */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                  {/* Certificate 3 - BU-ITI CTF */}
-                  <div 
-                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
-                    onClick={() => openCertificateModal("/10.png", "BU-ITI CTF Competition 2025")}
-                  >
-                    <div className="text-xl font-semibold text-white mb-4 text-center">BU-ITI CTF Competition 2025</div>
-                    <div className="w-full flex justify-center mb-4">
-                      <img src="/10.png" alt="BU-ITI CTF Competition 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
-                    </div>
-                  </div>
-                  {/* Certificate 4 - Basic CyberSecurity */}
+                  {/* Certificate 3 - Basic CyberSecurity */}
                   <div 
                     className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
                     onClick={() => openCertificateModal("/image.png", "Basic CyberSecurity By MOOC")}
@@ -419,21 +406,11 @@ function App() {
                       <img src="/image.png" alt="Basic CyberSecurity By MOOC" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
                     </div>
                   </div>
-                  {/* Certificate 5 - Cyber Top Talent */}
-                  <div 
-                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
-                    onClick={() => openCertificateModal("/CyberTopTalent.jpg", "Thailand Cyber Top Talent 2025")}
-                  >
-                    <div className="text-xl font-semibold text-white mb-4 text-center">Thailand Cyber Top Talent 2025</div>
-                    <div className="w-full flex justify-center mb-4">
-                      <img src="/CyberTopTalent.jpg" alt="Thailand Cyber Top Talent 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
-                    </div>
-                  </div>
                 </div>
                 
-                {/* Third Row - 3 Certificates */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                  {/* Certificate 6 - Cyber Youth Guardians */}
+                {/* Certificates - Second Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                  {/* Certificate 4 - Cyber Youth Guardians */}
                   <div 
                     className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
                     onClick={() => openCertificateModal("/Cyberyout.png", "Meet The Youth Cyber Guardians Thailand 2025")}
@@ -443,7 +420,7 @@ function App() {
                       <img src="/Cyberyout.png" alt="Meet The Youth Cyber Guardians Thailand 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
                     </div>
                   </div>
-                  {/* Certificate 7 - NCSA BootCamp */}
+                  {/* Certificate 5 - NCSA BootCamp */}
                   <div 
                     className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
                     onClick={() => openCertificateModal("/NSCA_BootCamp.png", "NCSA CTF BootCamp")}
@@ -453,7 +430,27 @@ function App() {
                       <img src="/NSCA_BootCamp.png" alt="NCSA CTF BootCamp" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
                     </div>
                   </div>
-                  {/* Certificate 8 - SWU CTF Competition */}
+                </div>
+
+                {/* Competitions Section */}
+                <h2 className="text-center text-4xl font-bold mb-12 text-white">
+                  <span className="text-white">My </span>
+                  <span className="text-pink-300">Competitions</span>
+                </h2>
+                
+                {/* Competitions - Single Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                  {/* Competition 1 - BU-ITI CTF */}
+                  <div 
+                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
+                    onClick={() => openCertificateModal("/10.png", "BU-ITI CTF Competition 2025")}
+                  >
+                    <div className="text-xl font-semibold text-white mb-4 text-center">BU-ITI CTF Competition 2025</div>
+                    <div className="w-full flex justify-center mb-4">
+                      <img src="/10.png" alt="BU-ITI CTF Competition 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+                    </div>
+                  </div>
+                  {/* Competition 2 - SWU CTF Competition */}
                   <div 
                     className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
                     onClick={() => openCertificateModal("/SWU Capture the Flag Competition 2025 153-01.jpg", "SWU Capture the Flag Competition 2025")}
@@ -461,6 +458,16 @@ function App() {
                     <div className="text-xl font-semibold text-white mb-4 text-center">SWU Capture the Flag Competition 2025</div>
                     <div className="w-full flex justify-center mb-4">
                       <img src="/SWU Capture the Flag Competition 2025 153-01.jpg" alt="SWU Capture the Flag Competition 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+                    </div>
+                  </div>
+                  {/* Competition 3 - Thailand Cyber Top Talent */}
+                  <div 
+                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
+                    onClick={() => openCertificateModal("/CyberTopTalent.jpg", "Thailand Cyber Top Talent 2025")}
+                  >
+                    <div className="text-xl font-semibold text-white mb-4 text-center">Thailand Cyber Top Talent 2025</div>
+                    <div className="w-full flex justify-center mb-4">
+                      <img src="/CyberTopTalent.jpg" alt="Thailand Cyber Top Talent 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
                     </div>
                   </div>
                 </div>
