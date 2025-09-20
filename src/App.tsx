@@ -3,7 +3,6 @@ import AboutMe from "./AboutMe";
 import Skill from "./Skill";
 import MyWorks from "./MyWorks";
 import Activities from "./Activities";
-import Certificate from "./Certificate";
 
 function App() {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -32,6 +31,11 @@ function App() {
   const [activeNav, setActiveNav] = React.useState('home');
   const [isScrolling, setIsScrolling] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  
+  // Certificate Modal State
+  const [certificateModalOpen, setCertificateModalOpen] = React.useState(false);
+  const [certificateModalImg, setCertificateModalImg] = React.useState("");
+  const [certificateModalTitle, setCertificateModalTitle] = React.useState("");
 
   // Scroll spy (optional: highlight active menu ตาม section ที่ scroll ถึง)
   React.useEffect(() => {
@@ -115,6 +119,19 @@ function App() {
     setTimeout(() => {
       setIsScrolling(false);
     }, 1000);
+  };
+
+  // Certificate Modal Functions
+  const openCertificateModal = (img: string, title: string) => {
+    setCertificateModalImg(img);
+    setCertificateModalTitle(title);
+    setCertificateModalOpen(true);
+  };
+
+  const closeCertificateModal = () => {
+    setCertificateModalOpen(false);
+    setCertificateModalImg("");
+    setCertificateModalTitle("");
   };
 
   return (
@@ -357,7 +374,54 @@ function App() {
       <div ref={certificateRef} id="certificate" className="py-16">
         <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           <div className="bg-gradient-to-br from-purple-900/20 via-purple-700/10 to-pink-600/20 backdrop-blur-md border border-purple-500/30 rounded-3xl p-8 shadow-2xl shadow-purple-500/20">
-            <Certificate />
+            <div className="w-full flex justify-center py-8 scroll-mt-24">
+              <div className="max-w-5xl w-full px-2 md:px-8 py-8">
+                <h2 className="text-center text-4xl font-bold mb-12 text-white">
+                  <span className="text-white">My </span>
+                  <span className="text-pink-300">Certificates</span>
+                </h2>
+                
+                {/* First Row - 2 Certificates */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Certificate 1 */}
+                  <div 
+                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
+                    onClick={() => openCertificateModal("/10.png", "BU-ITI CTF Competition 2025")}
+                  >
+                    <div className="text-xl font-semibold text-white mb-4 text-center">BU-ITI CTF Competition 2025</div>
+                    <div className="w-full flex justify-center mb-4">
+                      <img src="/10.png" alt="BU-ITI CTF Competition 2025" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+                    </div>
+                  </div>
+                  {/* Certificate 2 */}
+                  <div 
+                    className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
+                    onClick={() => openCertificateModal("/image.png", "Basic CyberSecurity By MOOC")}
+                  >
+                    <div className="text-xl font-semibold text-white mb-4 text-center">Basic CyberSecurity By MOOC</div>
+                    <div className="w-full flex justify-center mb-4">
+                      <img src="/image.png" alt="Basic CyberSecurity By MOOC" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Second Row - 1 Certificate Centered */}
+                <div className="flex justify-center">
+                  <div className="w-full max-w-md">
+                    {/* Certificate 3 - New Certificate */}
+                    <div 
+                      className="border border-white/30 rounded-2xl p-6 flex flex-col items-center bg-white/5 backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-pink-400 hover:bg-white/10 cursor-pointer"
+                      onClick={() => openCertificateModal("/cer.dereakkk.png", "Network Security Certificate")}
+                    >
+                      <div className="text-xl font-semibold text-white mb-4 text-center">Network Security Certificate</div>
+                      <div className="w-full flex justify-center mb-4">
+                        <img src="/cer.dereakkk.png" alt="Network Security Certificate" className="rounded-lg max-h-60 object-contain border border-white/20 bg-black" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -390,6 +454,35 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Certificate Full Size Modal */}
+      {certificateModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={closeCertificateModal}
+        >
+          {/* Close Button */}
+          <button 
+            onClick={closeCertificateModal} 
+            className="absolute top-4 right-4 z-10 text-4xl text-white hover:text-pink-400 transition-colors bg-black/50 rounded-full w-12 h-12 flex items-center justify-center backdrop-blur-sm"
+          >
+            ×
+          </button>
+          
+          {/* Certificate Title */}
+          <div className="absolute top-4 left-4 z-10 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2">
+            <h3 className="text-xl font-bold text-white">{certificateModalTitle}</h3>
+          </div>
+          
+          {/* Full Size Image */}
+          <img 
+            src={certificateModalImg} 
+            alt={certificateModalTitle} 
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
